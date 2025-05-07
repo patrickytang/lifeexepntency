@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+     <text x="250" y="250" text-anchor="middle">Insert your line graph here</text>
+    <!-- <form action="/line_graph" method="GET"> -->
+
+    
+ {% for i in range(1960,2021) %}
+        {% if i == 1960%}
+        <line x1="150" y1="{{data["United States"][i]}}" x2="{{150+loop.index0*5}}" y2="{{data["United States"][int(i+1)]}}"/>
+        {% endif %}
+        <line x1="{{150+loop.index0*5}}" y1="{{data["United States"][i]}}" x2="{{155+loop.index0*5}}" y2="{{data["United States"][i+1]}}" stroke="black" stroke-width="5px"/>
+        {% if i%10 == 0 %}
+        <text class="label" x="{{150+loop.index0*5}}" y="400"text-anchor="middle" href="/line_graph">{{i}}</text>
+      
+
+        {% endif %}
+        <text x="50"y="50">{{data['United States']['1960']}}</text>
+
+  {% endfor %}
+
+</svg>
