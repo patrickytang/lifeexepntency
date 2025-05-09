@@ -21,13 +21,11 @@ for i in range(5,66):
     me.append(float(mex[i]))
     us.append(float(usa[i]))
 print(ca)
-dictionary["United States"] = {}
-dictionary["Mexico"] = {}
-dictionary["Canada"] = {}
 for i in range(4,65):
-    dictionary["United States"][int(years[i])] = float(usa[i+1])
-    dictionary["Mexico"][int(years[i])] = float(mex[i+1])
-    dictionary["Canada"][int(years[i])] = float(can[i+1])
+    dictionary[int(years[i])] = {}
+    dictionary[int(years[i])]["United States"] = float(usa[i+1])
+    dictionary[int(years[i])]["Mexico"] = float(mex[i+1])
+    dictionary[int(years[i])]["Canada"] = float(can[i+1])
 
 print(dictionary)
 
