@@ -2,29 +2,37 @@
      <!-- <text x="250" y="250" text-anchor="middle">Insert your line graph here</text> -->
     <!-- <form action="/line_graph" method="GET"> -->
 
-{%for i in range(10) %}
-<line x1="150" y1="{{390-loop.index0*40}}" x2="450" y2="{{390-loop.index0*40}}" stroke = "gray"/>
+{%for i in range(12) %}
+<line x1="150" y1="{{350-loop.index0*25}}" x2="450" y2="{{350-loop.index0*25}}" stroke = "gray"/>
+<text x = "140" y = "{{355-loop.index0*25}}" text-anchor="end">{{((i*2.5+55)|string).rstrip('0').rstrip('.')}}</text>
 {%endfor%}
  {% for i in range(1960,2020) %}
- <!-- <text class="label" x="{{150+loop.index0*5}}" y="400"text-anchor="middle" href="/line_graph">{{data}}</text> -->
         {% if loop.index0 == 1%}
         <line x1="150" y1="{{data[(loop.index0+1960)|string]["United States"]}}" x2="{{150+loop.index0*5}}" y2="{{data[(loop.index0+1961)|string]["United States"]}}"/>
         {% endif %}
         {% if i%10 == 0 %}
-                <line x1="{{150+loop.index0*5}}" y1="20" x2="{{150+loop.index0*5}}" y2="390" stroke = "gray"/>
+                <line x1="{{150+loop.index0*5}}" y1="75" x2="{{150+loop.index0*5}}" y2="350" stroke = "gray"/>
 
-        <text class"label" x="{{150+loop.index0*5}}" y="400" text-anchor="middle" href"/line_graph">{{loop.index0+1960}}</text>
+        <text class="label" x="{{150+loop.index0*5}}" y="375" text-anchor="middle" href"/line_graph">{{loop.index0+1960}}</text>
 
         {% endif %}
-    <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["United States"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["United States"]*10}}" stroke = "black"/>
-      <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Mexico"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Mexico"]*10}}" stroke = "black"/>
-          <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Canada"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Canada"]*10}}" stroke = "black"/>
+    <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["United States"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["United States"]*10}}" stroke = "blue"/>
+      <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Mexico"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Mexico"]*10}}" stroke = "green"/>
+          <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Canada"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Canada"]*10}}" stroke = "red"/>
+
 
 
 
     
   {% endfor %}
-  <line x1="450" y1="20" x2="450" y2="390" stroke = "gray"/>
+  <line x1="450" y1="75" x2="450" y2="350" stroke = "gray"/>
+  <line x1="150" y1="350" x2="450" y2="350" stroke = "black"/>
+    <line x1="150" y1="75" x2="150" y2="350" stroke = "black" />
+ 
+  <line x1 = "150" x2 = "450" y1 = "{{900-data["Meaner"]*10}}" y2 = "{{900-data["Meaner"]*10}}" stroke="black" stroke-dasharray="2"/>
+  <text class="label" x="450" y="375" text-anchor="middle" href"/line_graph">2020</text>
+  <rect x = "5" y="400" width = "150" height = "95" rx = "10" fill="white" stroke ="black"/>
+  <text class="label" x="15" y="415"  href"/line_graph">Legend</text>
 
-  <text class"label" x="450" y="400" text-anchor="middle" href"/line_graph">2020</text>
 </svg>
+
