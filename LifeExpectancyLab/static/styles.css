@@ -10,3 +10,26 @@ svg{
 html{
   font-family: "papyrus";
 }
+
+
+#lineUs{
+  stroke-width:1px;
+  stroke:blue;
+}
+#lineUs:hover{
+  stroke-width:2px;
+}
+
+#lineCa:hover{
+  stroke-width:2px;
+}
+
+#lineMx:hover{
+  stroke-width:2px;
+}
+
+.dashed:hover{
+  stroke-width: 2px;
+}
+
+

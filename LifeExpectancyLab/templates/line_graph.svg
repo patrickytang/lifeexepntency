@@ -1,9 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500" id = "lgraph" >
      <!-- <text x="250" y="250" text-anchor="middle">Insert your line graph here</text> -->
     <!-- <form action="/line_graph" method="GET"> -->
 
-{%for i in range(12) %}
-<line x1="150" y1="{{350-loop.index0*25}}" x2="450" y2="{{350-loop.index0*25}}" stroke = "gray"/>
+{%for i in range(12) %} 
+
+ <line x1="150" y1="{{350-loop.index0*25}}" x2="450" y2="{{350-loop.index0*25}}" stroke = "gray"/>
 <text x = "140" y = "{{355-loop.index0*25}}" text-anchor="end">{{((i*2.5+55)|string).rstrip('0').rstrip('.')}}</text>
 {%endfor%}
  {% for i in range(1960,2020) %}
@@ -16,23 +18,62 @@
         <text class="label" x="{{150+loop.index0*5}}" y="375" text-anchor="middle" href"/line_graph">{{loop.index0+1960}}</text>
 
         {% endif %}
-    <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["United States"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["United States"]*10}}" stroke = "blue"/>
-      <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Mexico"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Mexico"]*10}}" stroke = "green"/>
-          <line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Canada"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Canada"]*10}}" stroke = "red"/>
+          {% endfor %}
+<g id = "lineUs">
+{% for i in range(1960,2020) %}
+<line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["United States"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["United States"]*10}}"/>
+{% endfor %}
+</g>
+
+<g id = "lineMx">
+{% for i in range(1960,2020) %}
+<line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Mexico"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Mexico"]*10}}" stroke = "green"/>
+{% endfor %}
+</g>
+  
+<g id = "lineCa">
+{% for i in range(1960,2020) %}
+<line x1="{{150+loop.index0*5}}" y1="{{900-data[(loop.index0+1960)|string]["Canada"]*10}}" x2="{{155+loop.index0*5}}" y2="{{900-data[(loop.index0+1961)|string]["Canada"]*10}}" stroke = "red" class = "lineCa"/>
+{% endfor %}
+</g>
+         
 
 
 
 
     
-  {% endfor %}
+
   <line x1="450" y1="75" x2="450" y2="350" stroke = "gray"/>
-  <line x1="150" y1="350" x2="450" y2="350" stroke = "black"/>
+  <line x1="150" y1="350" x2="450" y2="350" stroke = "black"/> 
     <line x1="150" y1="75" x2="150" y2="350" stroke = "black" />
  
-  <line x1 = "150" x2 = "450" y1 = "{{900-data["Meaner"]*10}}" y2 = "{{900-data["Meaner"]*10}}" stroke="black" stroke-dasharray="2"/>
+  <line x1 = "150" x2 = "450" y1 = "{{900-data["Meaner"]*10}}" y2 = "{{900-data["Meaner"]*10}}" stroke="black" stroke-dasharray="5" class ="dashed"/>
+    <text class="label" x="300" y="400" text-anchor="middle" href"/line_graph" font-size="20">Year</text>
+        <text class="label" x="80" y="215" text-anchor="middle" href"/line_graph" font-size="20" writing-mode="vertical-rl">Life expectancy (Years)</text>
+
+    
   <text class="label" x="450" y="375" text-anchor="middle" href"/line_graph">2020</text>
   <rect x = "5" y="400" width = "150" height = "95" rx = "10" fill="white" stroke ="black"/>
   <text class="label" x="15" y="415"  href"/line_graph">Legend</text>
+
+
+
+
+    <text class="label" x="20" y="435"  href"/line_graph" font-size= "10px">Canada:</text>
+        <text class="label" x="20" y="450"  href"/line_graph" font-size= "10px">United States:</text>
+            <text class="label" x="20" y="465"  href"/line_graph" font-size= "10px">Mexico:</text>
+                <text class="label" x="20" y="480"  href"/line_graph" font-size= "10px">Universal Average:</text>
+
+                <line x2 = "140" x1 = "110" y1 = "435" y2 = "435" stroke="red"/>
+                 <line x2 = "140" x1 = "110" y1 = "450" y2 = "450" stroke="blue"/>
+                  <line x2 = "140" x1 = "110" y1 = "465" y2 = "465" stroke="green"/>
+                  <line x2 = "140" x1 = "110" y1 = "480" y2 = "480" stroke="black" stroke-dasharray="2"/>
+
+
+
+
+
+
 
 </svg>
 
