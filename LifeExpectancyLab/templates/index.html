@@ -16,6 +16,9 @@
     <form action="/year" method="GET">
       <label for="year">Choose a year:</label><br>
       <select name="year" id="year_select">
+        {% for i in range(1960,2021)%}
+        <option value="{{i}}">{{i}}</option>
+        {%endfor%}
       </select>
       <input type="submit" value="Submit">
     <form>

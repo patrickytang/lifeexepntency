@@ -1,5 +1,6 @@
 # flask --app data_server run
 from flask import Flask
+from flask import request
 from flask import render_template
 import json
 
@@ -17,7 +18,8 @@ def index():
 
 @app.route('/year')
 def year():
-    return render_template('year.html')
+    requested_year = request.args.get('year')
+    return render_template('year.html', curYear = requested_year, )
 
 @app.route("/line_graph")
 def linegr():
