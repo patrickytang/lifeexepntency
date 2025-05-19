@@ -1,35 +1,32 @@
-body{
-  background-color: ivory;
+body {
+  background-color: rgb(230, 230, 230);
 }
 
-svg{
+svg {
   border-style: solid;
   border-width: 1px;
 }
 
-html{
-  font-family: "papyrus";
+html {
+  font-family: "Oswald", sans-serif;
 }
 
-
-#lineUs{
-  stroke-width:1px;
-  stroke:blue;
+#lineUs {
+  stroke-width: 1px;
+  stroke: blue;
 }
-#lineUs:hover{
-  stroke-width:2px;
-}
-
-#lineCa:hover{
-  stroke-width:2px;
-}
-
-#lineMx:hover{
-  stroke-width:2px;
-}
-
-.dashed:hover{
+#lineUs:hover {
   stroke-width: 2px;
 }
 
+#lineCa:hover {
+  stroke-width: 2px;
+}
 
+#lineMx:hover {
+  stroke-width: 2px;
+}
+
+.dashed:hover {
+  stroke-width: 2px;
+}

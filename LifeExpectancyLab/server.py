@@ -9,24 +9,22 @@ app = Flask(__name__, static_url_path='', static_folder='static')
 
 @app.route('/')
 def index():
-    
+    requested_year = request.args.get('year')
+    print(requested_year, "ASDASD")
     f = open("data/life_expectancy.json", "r")
     dater = json.load(f)
     f.close()
+    print("HI")
     return render_template('index.html', data=dater)
 
 
 @app.route('/year')
 def year():
-    requested_year = request.args.get('year')
-    return render_template('year.html', curYear = requested_year, )
-
-@app.route("/line_graph")
-def linegr():
+    print("kzjlsdergkhj")
     f = open("data/life_expectancy.json", "r")
     dater = json.load(f)
     f.close()
-    print(dater)
-    #return render_template("line_graph.svg",data=dater)
+    return render_template('year.html',year = request.args["year"],data=dater)
+
 
 app.run(debug=True)
